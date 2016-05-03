@@ -27,11 +27,6 @@ class Git implements Format {
 		try {
 			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', $opts['path'] ) ), $command );
 		} catch ( \Exception $e ) {
-
-			if ( 0 === $e->getCode() ) {
-				return false;
-			}
-
 			$message = $e->getMessage();
 		}
 
