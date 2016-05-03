@@ -1,12 +1,15 @@
 <?php
 /**
-Plugin Name: BEA SCM Infos
-Version: 0.19
-Description: Do stuffs with GIT, SVN from PHP
-Author: Be API
-License: GPL v2
+ Plugin Name: BEA SCM Infos
+ Version: 0.19
+ Version Boilerplate: 2.1.2
+ Plugin URI: http://www.beapi.fr
+ Description: Your plugin description
+ Author: BE API Technical team
+ Author URI: http://www.beapi.fr
+ Domain Path: languages
+ Text Domain: bea-scm
 */
-
 
 define( 'BEA_SCM_INFOS_VERSION', '0.19' );
 define( 'BEA_SCM_INFOS_DIR', plugin_dir_path( __FILE__ )  );
