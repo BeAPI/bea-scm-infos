@@ -24,7 +24,7 @@ To get this work, use composer :
 
 ```
 git clone https://github.com/BeAPI/bea-scm-infos && cd bea-scm-infos
-composer dump-autoload
+composer install
 ```
 
 Then go to your dashboard
