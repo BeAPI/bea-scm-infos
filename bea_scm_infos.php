@@ -4,7 +4,7 @@
  Version: 0.19
  Version Boilerplate: 2.1.2
  Plugin URI: http://www.beapi.fr
- Description: Your plugin description
+ Description: Get infos from versionning system you use
  Author: BE API Technical team
  Author URI: http://www.beapi.fr
  Domain Path: languages
