@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: BEA SCM Infos 0.19\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Be API <technique@beapi.fr>\n"
+"Language-Team: Be API <technique@beapi.fr>\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: fr_FR\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "title"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "Debug infos are cached for 1 minute !"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/main.php
+msgid "There is no infos to display, please choose one of the versionning system please."
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "BEA SCM Infos"
+msgstr ""
+
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "Which system of versionning do you use ?"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "Enter path"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/views/scm-infos.php
+msgid "Default is ABSPATH (WordPress root)"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/git.php
+msgid "Remote infos"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/git.php
+msgid "Current branch"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/git.php
+msgid "Describe tag"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/git.php
+msgid "Last commit"
+msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/main.php
+msgid "GIT is on %s - %s"
+msgstr ""

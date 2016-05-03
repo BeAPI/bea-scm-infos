@@ -1,0 +1,20 @@
+{
+  "name": "bea/git-infos",
+  "description": "get GIT infos and more",
+  "authors": [
+    {
+      "name": "tweetpressfr",
+      "email": "jmaury@beapi.fr"
+    }
+  ],
+  "require": {
+    "klaussilveira/gitter": "dev-master",
+    "tareq1988/wordpress-settings-api-class": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "classes/"
+    ]
+  }
+
+}

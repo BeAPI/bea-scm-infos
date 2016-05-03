@@ -1,0 +1,111 @@
+<?php
+namespace BEA\SCM;
+
+use Gitter;
+
+class Git implements Format {
+
+	use Singleton;
+
+	/**
+	 * Run command
+	 *
+	 * @param $command
+	 *
+	 * @author Julien Maury
+	 * @return string|bool
+	 */
+	public function run_command( $command ) {
+
+		$opts = get_option( 'bea_scm' );
+
+		if ( empty( $opts ) || ! is_array( $opts ) ) {
+			return false;
+		}
+
+		$client = new Gitter\Client;
+		try {
+			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', $opts['path'] ) ), $command );
+		} catch ( \Exception $e ) {
+
+			if ( 0 === $e->getCode() ) {
+				return false;
+			}
+
+			$message = $e->getMessage();
+		}
+
+		return $message;
+	}
+
+
+
+	/**
+	 * Prepare data for use
+	 *
+	 * @author Julien Maury
+	 * @return array
+	 */
+	public function prepare_data(){
+
+		$data = apply_filters( 'BEA/SCM/items_args',
+			array(
+				__( 'Remote infos', 'bea-scm' )   => 'remote -v',
+				__( 'Current branch', 'bea-scm' ) => 'rev-parse --abbrev-ref HEAD',
+				__( 'Describe tag', 'bea-scm' )    => 'describe --tags',
+				__( 'Last commit', 'bea-scm' )    => 'log -1 --oneline'
+			) );
+
+		if ( empty( $data ) && ! is_array( $data ) ) {
+			return array();
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Set cache for both cache and cache delete
+	 *
+	 * @author Julien Maury
+	 * @return bool
+	 */
+	public function set_cache(){
+		$data = $this->prepare_data();
+
+		if ( empty( $data ) ) {
+			return false;
+		}
+
+		return md5( implode( ' ', $data ) );
+	}
+
+	/**
+	 * Get current infos GIT and put them in cache
+	 *
+	 * @author Julien Maury
+	 * @return array|bool
+	 */
+	public function get_data() {
+
+		if ( false === ( $output = get_site_transient( 'bea_scm_' . $this->set_cache() ) ) ) {
+
+			foreach ( $this->prepare_data() as $name => $command ) {
+				$output[ $name ] = self::run_command( $command );
+			}
+
+			set_transient( 'bea_scm_' . $this->set_cache(), $output, MINUTE_IN_SECONDS );
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Delete cache
+	 *
+	 * @author Julien Maury
+	 * @return bool
+	 */
+	public function delete_cache(){
+		return delete_site_transient( $this->set_cache() );
+	}
+}
