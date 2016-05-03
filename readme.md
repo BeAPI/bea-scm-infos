@@ -60,7 +60,7 @@ admin bar view :
 
 tool page :
 
-![set options](/assets/img/screen-option.png?raw=true)
+![set options](/assets/img/screen-options.png?raw=true)
 
 ## Changelog ##
 
