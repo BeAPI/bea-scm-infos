@@ -4,6 +4,11 @@
 
 Get infos from versionning system you use
 
+## Requirements
+
+* proc_open enabled on PHP installation
+* composer
+
 ## Features
 
 * basic infos GIT (branch, tag, last commit)
