@@ -67,6 +67,10 @@ tool page :
 
 ![set options](/assets/img/screen-options.png?raw=true)
 
+error case :
+
+![set options](/assets/img/screen-error.png?raw=true)
+
 ## Changelog ##
 
 ### 0.20
