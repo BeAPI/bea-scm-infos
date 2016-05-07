@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: BEA SCM Infos
- Version: 0.19
+ Version: 0.19.1
  Plugin URI: http://www.beapi.fr
  Description: Get infos from versionning system you use
  Author: BE API Technical team
