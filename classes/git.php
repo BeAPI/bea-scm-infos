@@ -13,7 +13,7 @@ class Git implements Format {
 	 * @param $command
 	 *
 	 * @author Julien Maury
-	 * @return string|bool
+	 * @return \WP_Error|bool|string
 	 */
 	public function run_command( $command ) {
 
@@ -27,7 +27,7 @@ class Git implements Format {
 		try {
 			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', $opts['path'] ) ), $command );
 		} catch ( \Exception $e ) {
-			$message = $e->getMessage();
+			return new \WP_Error( 'error_command', $e->getMessage() );
 		}
 
 		return $message;
@@ -47,7 +47,7 @@ class Git implements Format {
 			array(
 				__( 'Remote infos', 'bea-scm' )   => 'remote -v',
 				__( 'Current branch', 'bea-scm' ) => 'rev-parse --abbrev-ref HEAD',
-				__( 'Describe tag', 'bea-scm' )    => 'describe --tags',
+				__( 'Describe tag', 'bea-scm' )   => 'describe --tags',
 				__( 'Last commit', 'bea-scm' )    => 'log -1 --oneline'
 			) );
 
@@ -85,7 +85,14 @@ class Git implements Format {
 		if ( false === ( $output = get_site_transient( 'bea_scm_' . $this->set_cache() ) ) ) {
 
 			foreach ( $this->prepare_data() as $name => $command ) {
-				$output[ $name ] = self::run_command( $command );
+				$run_command = self::run_command( $command );
+
+				if ( is_wp_error( $run_command ) ) {
+					return $run_command->get_error_message();
+					continue;
+				}
+
+				$output[ $name ] = $run_command;
 			}
 
 			set_transient( 'bea_scm_' . $this->set_cache(), $output, MINUTE_IN_SECONDS );

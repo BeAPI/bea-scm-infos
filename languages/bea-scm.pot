@@ -72,3 +72,8 @@ msgstr ""
 #: bea-scm-infos/classes/main.php
 msgid "GIT is on %s - %s"
 msgstr ""
+
+#. Text in echo
+#: bea-scm-infos/classes/main.php
+msgid "GIT error - click me to see what happened"
+msgstr ""

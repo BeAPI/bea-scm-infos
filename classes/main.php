@@ -29,30 +29,67 @@ class Main {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
 
+	public static function get_tool_page_url(){
+		return esc_url( add_query_arg( 'page', 'bea_scm_infos', admin_url( 'tools.php' ) ) );
+	}
+
+	/**
+	 * Check who has access to admin footer data
+
+	 * @author Julien Maury
+	 * @return bool|void
+	 */
+	public function current_user_can_footer_message(){
+
+		if ( apply_filters( 'BEA/SCM/show_admin_footer_text', ! is_super_admin() ) ) {
+			return false;
+		}
+
+		return true;
+	}
+
 	/**
 	 * Admin footer
+	 * @param $text
 	 * @author Julien Maury
 	 * @return string
 	 */
-	public function admin_footer_text() {
-		return self::get_basic_infos();
-	}
+	public function admin_footer_text( $text ) {
+		$data = self::get_basic_data();
 
+		if ( ! $this->current_user_can_footer_message() ) {
+			return $text;
+		}
+
+		$add_text = is_wp_error( $data ) ? $data->get_error_message() : $data;
+
+		return sprintf( '%s <a href="%s">%s</a>', $text, self::get_tool_page_url(), $add_text );
+	}
 
 	/**
 	 * Get GIT infos
 	 * Branch + Tag
 	 *
 	 * @author Julien Maury
-	 * @return string
+	 * @return string| \WP_Error
 	 */
-	public static function get_basic_infos(){
+	public static function get_basic_data() {
 		$git = Git::get_instance();
-		return sprintf(
-			__( 'GIT is on %s - %s', 'bea-scm' ),
-			$git->run_command( 'rev-parse --abbrev-ref HEAD' ),
-			$git->run_command( 'describe --tags' )
-		);
+
+		$branch = $git->run_command( 'rev-parse --abbrev-ref HEAD' );
+		$tag    = $git->run_command( 'describe --tags' );
+
+		if ( ! is_wp_error( $branch ) && ! is_wp_error( $tag ) ) {
+
+			return sprintf(
+				esc_html__( 'GIT is on %s - %s', 'bea-scm' ),
+				$branch,
+				$tag
+			);
+
+		} else {
+			return new \WP_Error( 'git_broken', esc_html__( 'GIT error - click me to see what happened', 'bea-scm' ) );
+		}
 	}
 
 
@@ -91,8 +128,8 @@ class Main {
 	 */
 	public function admin_menu() {
 		add_management_page(
-			__( 'BEA SCM Infos', 'bea-scm' ),
-			__( 'BEA SCM Infos', 'bea-scm' ),
+			esc_html__( 'BEA SCM Infos', 'bea-scm' ),
+			esc_html__( 'BEA SCM Infos', 'bea-scm' ),
 			'manage_options', 'bea_scm_infos',
 			array(
 				$this,
@@ -110,7 +147,7 @@ class Main {
 		$sections = array(
 			array(
 				'id'    => 'bea_scm',
-				'title' => __( 'Options' ),
+				'title' => esc_html__( 'Options' ),
 			),
 		);
 
@@ -127,18 +164,18 @@ class Main {
 			'bea_scm' => array(
 				array(
 					'name'    => 'which_tool',
-					'label'   => __( 'Which system of versionning do you use ?', 'bea-scm' ),
+					'label'   => esc_html__( 'Which system of versionning do you use ?', 'bea-scm' ),
 					'type'    => 'multicheck',
 					'options' => array(
-						'git'       => __( 'GIT', 'bea-scm' ),
+						'git' => esc_html__( 'GIT', 'bea-scm' ),
 						//'svn'       => __( 'SVN (subversion)', 'bea-scm' ),
 						//'mercurial' => __( 'Mercurial', 'bea-scm' ),
 					),
 				),
 				array(
 					'name'    => 'path',
-					'label'   => __( 'Enter path', 'bea-scm' ),
-					'desc'    => __( 'Default is ABSPATH (WordPress root)', 'bea-scm' ),
+					'label'   => esc_html__( 'Enter path', 'bea-scm' ),
+					'desc'    => esc_html__( 'Default is ABSPATH (WordPress root)', 'bea-scm' ),
 					'type'    => 'text',
 					'default' => ABSPATH,
 				),

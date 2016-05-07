@@ -18,10 +18,29 @@ class Admin_Bar {
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 999 );
 	}
 
+	/***
+	 * Get data to display on admin bar
+	 *
+	 * @author Julien Maury
+	 * @return array
+	 */
+	public function get_data(){
+
+		$git_data = Main::get_basic_data();
+
+		if ( ! is_wp_error( $git_data ) ) {
+			$data = array( 'classname' => 'green', 'data' => $git_data );
+		} else {
+			$data = array( 'classname' => 'red', 'data' => $git_data->get_error_message() );
+		}
+
+		return $data;
+	}
+
 	/**
 	 * Plug our bar
 	 * @author Julien Maury
-	 * @return bool|void
+	 * @return bool
 	 */
 	public function admin_bar_menu() {
 
@@ -31,19 +50,22 @@ class Admin_Bar {
 
 		global $wp_admin_bar;
 
-		$this->current_user_can( $wp_admin_bar );
-		$this->git_admin_bar( $wp_admin_bar );
+		if ( $this->current_user_can_admin_bar( $wp_admin_bar ) ) {
+			$this->git_admin_bar( $wp_admin_bar );
+		}
+
+		return true;
 
 	}
 
 	/**
-	 * Check who has access to admin bar infos
+	 * Check who has access to admin bar data
 	 *
 	 * @param $object
 	 * @author Julien Maury
 	 * @return bool|void
 	 */
-	public function current_user_can($object){
+	public function current_user_can_admin_bar($object){
 
 		if ( apply_filters( 'BEA/SCM/show_admin_bar', ! is_super_admin()
 		     || ! is_object( $object )
@@ -51,6 +73,8 @@ class Admin_Bar {
 		     || ! is_admin_bar_showing() ) ) {
 			return false;
 		}
+
+		return true;
 	}
 
 	/**
@@ -60,12 +84,14 @@ class Admin_Bar {
 	 */
 	public function git_admin_bar( $wp_admin_bar ) {
 
+		$data = $this->get_data();
+
 		$args = array(
 			'id'    => 'bea_scm',
-			'title' => Main::get_basic_infos(),
-			'href'  => esc_url( add_query_arg( 'page', 'bea_scm_infos', admin_url( 'tools.php' ) ) ),
+			'title' => $data['data'],
+			'href'  => Main::get_tool_page_url(),
 			'meta'  => array(
-				'class' => 'bea-scm',
+				'class' => $data['classname'],
 			)
 		);
 
