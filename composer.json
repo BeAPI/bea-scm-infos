@@ -8,12 +8,13 @@
     }
   ],
   "require": {
-    "klaussilveira/gitter": "dev-master",
-    "tareq1988/wordpress-settings-api-class": "dev-master"
+    "php": ">=5.3.0",
+    "symfony/process": ">=2.2"
   },
   "autoload": {
     "classmap": [
-      "classes/"
+      "classes/",
+      "library"
     ]
   }
 }

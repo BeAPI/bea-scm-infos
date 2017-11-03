@@ -18,15 +18,9 @@ class Git implements Format {
 	 */
 	public function run_command( $command ) {
 
-		$opts = get_option( 'bea_scm' );
-
-		if ( empty( $opts ) || ! is_array( $opts ) ) {
-			return false;
-		}
-
 		$client = new Gitter\Client;
 		try {
-			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', $opts['path'] ) ), $command );
+			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', ABSPATH ) ), $command );
 		} catch ( \Exception $e ) {
 			return new \WP_Error( 'error_command', $e->getMessage() );
 		}
@@ -95,7 +89,7 @@ class Git implements Format {
 				$output[ $name ] = $run_command;
 			}
 
-			set_transient( 'bea_scm_' . $this->set_cache(), $output, MINUTE_IN_SECONDS );
+			set_transient( 'bea_scm_' . $this->set_cache(), $output, (int) apply_filters( 'BEA/SCM/transient_expiration', MINUTE_IN_SECONDS ) );
 		}
 
 		return $output;

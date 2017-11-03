@@ -19,12 +19,7 @@ msgstr ""
 
 #. Text in echo
 #: bea-scm-infos/views/scm-infos.php
-msgid "Debug infos are cached for 1 minute !"
-msgstr ""
-
-#. Text in echo
-#: bea-scm-infos/classes/main.php
-msgid "There is no infos to display, please choose one of the versionning system please."
+msgid "Debug infos are cached for %d seconds !"
 msgstr ""
 
 #. Text in echo

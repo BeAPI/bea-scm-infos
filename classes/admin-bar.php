@@ -11,11 +11,8 @@ if ( ! function_exists( 'add_action' ) ) {
 class Admin_Bar {
 
 	use Singleton;
-	protected $opts;
 
 	public function init() {
-
-		$this->opts = get_option( 'bea_scm' );
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 999 );
 	}
 
@@ -30,9 +27,9 @@ class Admin_Bar {
 		$git_data = Main::get_basic_data();
 
 		if ( ! is_wp_error( $git_data ) ) {
-			$data = array( 'classname' => 'green', 'data' => $git_data );
+			$data = array( 'classname' => 'greenish', 'data' => $git_data );
 		} else {
-			$data = array( 'classname' => 'red', 'data' => $git_data->get_error_message() );
+			$data = array( 'classname' => 'redish', 'data' => $git_data->get_error_message() );
 		}
 
 		return $data;
@@ -45,13 +42,9 @@ class Admin_Bar {
 	 */
 	public function admin_bar_menu() {
 
-		if ( empty( $this->opts['which_tool'] ) ) {
-			return false;
-		}
-
 		global $wp_admin_bar;
 
-		if ( $this->current_user_can_admin_bar( $wp_admin_bar ) ) {
+		if ( $this->current_user_can_see_admin_bar( $wp_admin_bar ) ) {
 			$this->git_admin_bar( $wp_admin_bar );
 		}
 
@@ -67,7 +60,7 @@ class Admin_Bar {
 	 * @author Julien Maury
 	 * @return bool
 	 */
-	public function current_user_can_admin_bar( $object ) {
+	public function current_user_can_see_admin_bar( $object ) {
 
 		if ( apply_filters( 'BEA/SCM/show_admin_bar', ! is_super_admin()
 		                                              || ! is_object( $object )
@@ -98,9 +91,8 @@ class Admin_Bar {
 			)
 		);
 
-		if ( in_array( 'git', $this->opts['which_tool'], true ) ) {
-			$wp_admin_bar->add_menu( $args );
-		}
+		$wp_admin_bar->add_menu( $args );
+
 	}
 
 

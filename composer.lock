@@ -4,57 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1119090ca06035a295eab31c13bbb73a",
+    "content-hash": "263753102c83bad32fd374ed51b18bcd",
     "packages": [
-        {
-            "name": "klaussilveira/gitter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/klaussilveira/gitter.git",
-                "reference": "4a2b7fc5f0cbf50d684f77b07c8d18b5d71b7bbb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/klaussilveira/gitter/zipball/4a2b7fc5f0cbf50d684f77b07c8d18b5d71b7bbb",
-                "reference": "4a2b7fc5f0cbf50d684f77b07c8d18b5d71b7bbb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/process": ">=2.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.1",
-                "phpunit/phpunit": ">=3.7.1",
-                "symfony/filesystem": ">=2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Gitter": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Klaus Silveira",
-                    "email": "klaussilveira@php.net",
-                    "homepage": "http://www.klaussilveira.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Gitter allows you to interact in an object oriented manner with Git repositories.",
-            "homepage": "https://github.com/klaussilveira/gitter",
-            "keywords": [
-                "git",
-                "vcs"
-            ],
-            "time": "2016-04-01T16:37:57+00:00"
-        },
         {
             "name": "symfony/process",
             "version": "v3.3.10",
@@ -103,61 +54,16 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "time": "2017-10-02T06:42:24+00:00"
-        },
-        {
-            "name": "tareq1988/wordpress-settings-api-class",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tareq1988/wordpress-settings-api-class.git",
-                "reference": "11a1685a3dd1b0451674c18288e5bd129dcbebe6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tareq1988/wordpress-settings-api-class/zipball/11a1685a3dd1b0451674c18288e5bd129dcbebe6",
-                "reference": "11a1685a3dd1b0451674c18288e5bd129dcbebe6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPLv2"
-            ],
-            "authors": [
-                {
-                    "name": "Tareq Hasan",
-                    "email": "tareq@wedevs.com",
-                    "homepage": "http://tareq.wedevs.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "WordPress settings API Abstraction Class",
-            "homepage": "https://github.com/tareq1988/wordpress-settings-api-class",
-            "keywords": [
-                "settings-api",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2017-07-02T14:15:10+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "klaussilveira/gitter": 20,
-        "tareq1988/wordpress-settings-api-class": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.3.0"
+    },
     "platform-dev": []
 }

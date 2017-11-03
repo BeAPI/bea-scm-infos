@@ -59,20 +59,27 @@ composer require bea/bea-scm-infos dev-master
 
 admin bar view :
 
-![admin bar infos](/assets/img/screen-admin-bar.png?raw=true)
+![admin bar infos](/assets/img/screen-the-admin-bar.png?raw=true)
 
 tool page :
 
-![set options](/assets/img/screen-options.png?raw=true)
+![set options](/assets/img/screen-tool-page.png?raw=true)
 
 error case :
 
-![set options](/assets/img/screen-error.png?raw=true)
+![set options](/assets/img/screen-the-error.png?raw=true)
 
 ## Changelog ##
 
-### 1.0
+### 2.0
 * 03 November 2017
+* lib Gitter is no longer supported so include it as library
+* delete composer require Gitter
+* reformat admin page
+* delete useless filter footer text
+* add more filters such as BEA/SCM/transient_expiration
+
+### 1.0
 * first release
 * update composer
 * disable option switch versioning system
