@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d5a86626773a96f4a1b1e0204efb789a",
     "content-hash": "1119090ca06035a295eab31c13bbb73a",
     "packages": [
         {
@@ -54,29 +53,29 @@
                 "git",
                 "vcs"
             ],
-            "time": "2016-04-01 16:37:57"
+            "time": "2016-04-01T16:37:57+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v3.0.5",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "53f9407c0bb1c5a79127db8f7bfe12f0f6f3dcdb"
+                "reference": "fdf89e57a723a29baf536e288d6e232c059697b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/53f9407c0bb1c5a79127db8f7bfe12f0f6f3dcdb",
-                "reference": "53f9407c0bb1c5a79127db8f7bfe12f0f6f3dcdb",
+                "url": "https://api.github.com/repos/symfony/process/zipball/fdf89e57a723a29baf536e288d6e232c059697b1",
+                "reference": "fdf89e57a723a29baf536e288d6e232c059697b1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -103,7 +102,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-14 15:30:28"
+            "time": "2017-10-02T06:42:24+00:00"
         },
         {
             "name": "tareq1988/wordpress-settings-api-class",
@@ -111,12 +110,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tareq1988/wordpress-settings-api-class.git",
-                "reference": "ecb2778e17ef5d871f2d13697406d5efed9068ac"
+                "reference": "11a1685a3dd1b0451674c18288e5bd129dcbebe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tareq1988/wordpress-settings-api-class/zipball/ecb2778e17ef5d871f2d13697406d5efed9068ac",
-                "reference": "ecb2778e17ef5d871f2d13697406d5efed9068ac",
+                "url": "https://api.github.com/repos/tareq1988/wordpress-settings-api-class/zipball/11a1685a3dd1b0451674c18288e5bd129dcbebe6",
+                "reference": "11a1685a3dd1b0451674c18288e5bd129dcbebe6",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +146,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-10-18 08:33:32"
+            "time": "2017-07-02T14:15:10+00:00"
         }
     ],
     "packages-dev": [],

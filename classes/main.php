@@ -1,4 +1,5 @@
 <?php
+
 namespace BEA\SCM;
 
 if ( ! function_exists( 'add_action' ) ) {
@@ -29,17 +30,16 @@ class Main {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
 
-	public static function get_tool_page_url(){
+	public static function get_tool_page_url() {
 		return esc_url( add_query_arg( 'page', 'bea_scm_infos', admin_url( 'tools.php' ) ) );
 	}
 
 	/**
 	 * Check who has access to admin footer data
-
 	 * @author Julien Maury
 	 * @return bool|void
 	 */
-	public function current_user_can_footer_message(){
+	public function current_user_can_footer_message() {
 
 		if ( apply_filters( 'BEA/SCM/show_admin_footer_text', ! is_super_admin() ) ) {
 			return false;
@@ -50,7 +50,9 @@ class Main {
 
 	/**
 	 * Admin footer
+	 *
 	 * @param $text
+	 *
 	 * @author Julien Maury
 	 * @return string
 	 */
@@ -162,16 +164,14 @@ class Main {
 	public function get_settings_fields() {
 		$settings_fields = array(
 			'bea_scm' => array(
-				array(
+				/*array(
 					'name'    => 'which_tool',
 					'label'   => esc_html__( 'Which system of versionning do you use ?', 'bea-scm' ),
 					'type'    => 'multicheck',
 					'options' => array(
 						'git' => esc_html__( 'GIT', 'bea-scm' ),
-						//'svn'       => __( 'SVN (subversion)', 'bea-scm' ),
-						//'mercurial' => __( 'Mercurial', 'bea-scm' ),
 					),
-				),
+				), disable this option for now */
 				array(
 					'name'    => 'path',
 					'label'   => esc_html__( 'Enter path', 'bea-scm' ),

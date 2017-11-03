@@ -1,4 +1,5 @@
 <?php
+
 namespace BEA\SCM;
 
 use Gitter;
@@ -34,14 +35,13 @@ class Git implements Format {
 	}
 
 
-
 	/**
 	 * Prepare data for use
 	 *
 	 * @author Julien Maury
 	 * @return array
 	 */
-	public function prepare_data(){
+	public function prepare_data() {
 
 		$data = apply_filters( 'BEA/SCM/items_args',
 			array(
@@ -64,7 +64,7 @@ class Git implements Format {
 	 * @author Julien Maury
 	 * @return bool
 	 */
-	public function set_cache(){
+	public function set_cache() {
 		$data = $this->prepare_data();
 
 		if ( empty( $data ) ) {
@@ -107,7 +107,7 @@ class Git implements Format {
 	 * @author Julien Maury
 	 * @return bool
 	 */
-	public function delete_cache(){
+	public function delete_cache() {
 		return delete_site_transient( $this->set_cache() );
 	}
 }

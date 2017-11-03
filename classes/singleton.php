@@ -1,4 +1,5 @@
 <?php
+
 namespace BEA\SCM;
 /**
  * Singleton base class for having singleton implementation
@@ -16,6 +17,7 @@ trait Singleton {
 	 * @var self
 	 */
 	protected static $instance;
+
 	/**
 	 * @return self
 	 */
@@ -23,20 +25,25 @@ trait Singleton {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new static;
 		}
+
 		return self::$instance;
 	}
+
 	/**
 	 * Constructor protected from the outside
 	 */
 	final private function __construct() {
 		$this->init();
 	}
+
 	/**
 	 * Add init function by default
 	 * Implement this method in your child class
 	 * If you want to have actions send at construct
 	 */
-	protected function init() {}
+	protected function init() {
+	}
+
 	/**
 	 * prevent the instance from being cloned
 	 *
@@ -44,6 +51,7 @@ trait Singleton {
 	 */
 	final private function __clone() {
 	}
+
 	/**
 	 * prevent from being unserialized
 	 *

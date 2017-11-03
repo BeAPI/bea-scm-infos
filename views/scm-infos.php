@@ -6,13 +6,13 @@ if ( ! empty( $data['instance'] ) ) :
 
 	?>
 	<?php if ( ! empty( $data['title'] ) ) : ?>
-	<h3><?php esc_html_e( $data['title'] ); ?></h3>
+    <h3><?php esc_html_e( $data['title'] ); ?></h3>
 <?php endif; ?>
-	<p><?php _e( 'Debug infos are cached for 1 minute !', 'bea-scm' ); ?></p>
-	<ul>
+    <p><?php _e( 'Debug infos are cached for 1 minute !', 'bea-scm' ); ?></p>
+    <ul>
 		<?php foreach ( (array) $results as $command => $result ) {
 			printf( '<li><strong>%s</strong> : %s</li>', $command, $result );
 		}
 		?>
-	</ul>
+    </ul>
 <?php endif;

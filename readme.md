@@ -73,12 +73,16 @@ error case :
 
 ## Changelog ##
 
-### 0.20
+### 1.0
+* 03 November 2017
+* first release
+* update composer
+* disable option switch versioning system
 
+### 0.20
 * handle errors in a better way
 * red color for error GIT or path - green whan it's all right
 * add link in admin footer text + avoid overriding plugins that already use the filter
 
 ### 0.19
-
 * initial

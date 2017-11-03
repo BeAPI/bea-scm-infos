@@ -1,4 +1,5 @@
 <?php
+
 namespace BEA\SCM;
 
 if ( ! function_exists( 'add_action' ) ) {
@@ -24,7 +25,7 @@ class Admin_Bar {
 	 * @author Julien Maury
 	 * @return array
 	 */
-	public function get_data(){
+	public function get_data() {
 
 		$git_data = Main::get_basic_data();
 
@@ -62,15 +63,16 @@ class Admin_Bar {
 	 * Check who has access to admin bar data
 	 *
 	 * @param $object
+	 *
 	 * @author Julien Maury
-	 * @return bool|void
+	 * @return bool
 	 */
-	public function current_user_can_admin_bar($object){
+	public function current_user_can_admin_bar( $object ) {
 
 		if ( apply_filters( 'BEA/SCM/show_admin_bar', ! is_super_admin()
-		     || ! is_object( $object )
-		     || ! function_exists( 'is_admin_bar_showing' )
-		     || ! is_admin_bar_showing() ) ) {
+		                                              || ! is_object( $object )
+		                                              || ! function_exists( 'is_admin_bar_showing' )
+		                                              || ! is_admin_bar_showing() ) ) {
 			return false;
 		}
 
@@ -80,6 +82,7 @@ class Admin_Bar {
 	/**
 	 * Handle GIT part
 	 * @author Julien Maury
+	 *
 	 * @param $wp_admin_bar
 	 */
 	public function git_admin_bar( $wp_admin_bar ) {
@@ -95,7 +98,7 @@ class Admin_Bar {
 			)
 		);
 
-		if ( in_array( 'git', $this->opts['which_tool'] ) ) {
+		if ( in_array( 'git', $this->opts['which_tool'], true ) ) {
 			$wp_admin_bar->add_menu( $args );
 		}
 	}

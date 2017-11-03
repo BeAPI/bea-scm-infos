@@ -1,7 +1,8 @@
 <?php
+
 namespace BEA\SCM;
 
-interface Format{
+interface Format {
 
 	public function get_data();
 }
