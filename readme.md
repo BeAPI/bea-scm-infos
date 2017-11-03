@@ -17,7 +17,6 @@ Get infos from versionning system you use
 
 ## TODO
 
-* svn & mercurial parts
 * dashboard widget
 
 
