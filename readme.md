@@ -6,7 +6,7 @@ Get infos from versionning system you use
 
 ## Requirements
 
-* proc_open enabled on PHP installation
+* proc_open enabled on PHP installation => means it runs on PHP safe mod unlike exec()
 * composer
 
 ## Features
