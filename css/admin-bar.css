@@ -1,9 +1,9 @@
-li.green, li.green:focus, li.green:hover a {
+li.greenish, li.greenish:focus, li.greenish:hover a {
     background-color: green !important;
     color: white !important
 }
 
-li.red, li.red:focus, li.red:hover a {
+li.redish, li.redish:focus, li.redish:hover a {
     background-color: red !important;
     color: white !important
 }

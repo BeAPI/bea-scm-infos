@@ -19,8 +19,8 @@ msgstr "Titre"
 
 #. Text in echo
 #: bea-scm-infos/views/scm-infos.php
-msgid "Debug infos are cached for 1 minute !"
-msgstr "Les informations sont mises en cache pendant 1 minute !"
+msgid "Debug infos are cached for %d seconds !"
+msgstr "Les informations sont mises en cache pendant %d secondes !"
 
 #. Text in echo
 #: bea-scm-infos/classes/main.php
@@ -43,11 +43,6 @@ msgstr "Quel système de versionning utilisez-vous ?"
 #: bea-scm-infos/views/scm-infos.php
 msgid "Enter path"
 msgstr "Entrez le chemin vers le dossier de versionning"
-
-#. Text in echo
-#: bea-scm-infos/views/scm-infos.php
-msgid "Default is ABSPATH (WordPress root)"
-msgstr "Par défaut ABSPATH (la racine de l'installation WordPress)"
 
 #. Text in echo
 #: bea-scm-infos/classes/git.php

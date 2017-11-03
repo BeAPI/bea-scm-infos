@@ -6,7 +6,7 @@ Get infos from versionning system you use
 
 ## Requirements
 
-* proc_open enabled on PHP installation
+* proc_open enabled on PHP installation => means it runs on PHP safe mod unlike exec()
 * composer
 
 ## Features
@@ -17,7 +17,6 @@ Get infos from versionning system you use
 
 ## TODO
 
-* svn & mercurial parts
 * dashboard widget
 
 
@@ -28,8 +27,7 @@ By default only super admin (or admin on single install) can see admin bar infos
 To get this work, use composer :
 
 ```
-git clone https://github.com/BeAPI/bea-scm-infos && cd bea-scm-infos
-composer install
+git clone https://github.com/BeAPI/bea-scm-infos && cd bea-scm-infos && composer install
 ```
 
 Then go to your dashboard
@@ -73,8 +71,15 @@ error case :
 
 ## Changelog ##
 
-### 1.0
+### 2.0
 * 03 November 2017
+* lib Gitter is no longer supported so include it as library
+* delete composer require Gitter
+* reformat admin page
+* delete useless filter footer text
+* add more filters such as BEA/SCM/transient_expiration
+
+### 1.0
 * first release
 * update composer
 * disable option switch versioning system
