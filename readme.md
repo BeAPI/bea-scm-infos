@@ -71,8 +71,11 @@ error case :
 
 ## Changelog ##
 
-### 2.0
+### 2.1
 * 03 November 2017
+* composer json type : wordpress-plugin
+
+### 2.0
 * lib Gitter is no longer supported so include it as library
 * delete composer require Gitter
 * reformat admin page
