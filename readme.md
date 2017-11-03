@@ -28,8 +28,7 @@ By default only super admin (or admin on single install) can see admin bar infos
 To get this work, use composer :
 
 ```
-git clone https://github.com/BeAPI/bea-scm-infos && cd bea-scm-infos
-composer install
+git clone https://github.com/BeAPI/bea-scm-infos && cd bea-scm-infos && composer install
 ```
 
 Then go to your dashboard
