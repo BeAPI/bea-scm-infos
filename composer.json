@@ -11,6 +11,7 @@
     "php": ">=5.3.0",
     "symfony/process": ">=2.2"
   },
+  "type" : "wordpress-plugin",
   "autoload": {
     "classmap": [
       "classes/",
