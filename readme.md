@@ -59,15 +59,15 @@ composer require bea/bea-scm-infos dev-master
 
 admin bar view :
 
-![admin bar infos](/assets/img/screen-admin-bar.png?raw=true)
+![admin bar infos](/assets/img/screen-the-admin-bar.png?raw=true)
 
 tool page :
 
-![set options](/assets/img/screen-options.png?raw=true)
+![set options](/assets/img/screen-tool-page.png?raw=true)
 
 error case :
 
-![set options](/assets/img/screen-error.png?raw=true)
+![set options](/assets/img/screen-the-error.png?raw=true)
 
 ## Changelog ##
 
