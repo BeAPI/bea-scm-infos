@@ -43,11 +43,11 @@ class Main {
 	 */
 	public function current_user_can_footer_message() {
 
-		if ( apply_filters( 'BEA/SCM/hide_admin_footer_text', is_super_admin() ) ) {
-			return true;
+		if ( apply_filters( 'BEA/SCM/hide_admin_footer_text', ! is_super_admin() ) ) {
+			return false;
 		}
 
-		return false;
+		return true;
 	}
 
 	/**
