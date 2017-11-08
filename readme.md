@@ -54,6 +54,7 @@ composer require bea/bea-scm-infos dev-master
 * BEA/SCM/git_folder_path
 * BEA/SCM/items_args
 * BEA/SCM/hide_admin_bar
+* BEA/SCM/hide_admin_footer_text
 
 ## Screenshots
 
@@ -75,7 +76,7 @@ error case :
 * 09 November 2017
 * change filter name admin bar that can be confusing
 * add info as admin footer text too
-* new filter
+* new filter BEA/SCM/hide_admin_footer_text
 
 ### 2.1
 * 03 November 2017
