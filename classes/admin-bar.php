@@ -62,7 +62,7 @@ class Admin_Bar {
 	 */
 	public function current_user_can_see_admin_bar( $object ) {
 
-		if ( apply_filters( 'BEA/SCM/show_admin_bar', ! is_super_admin()
+		if ( apply_filters( 'BEA/SCM/hide_admin_bar', ! is_super_admin()
 		                                              || ! is_object( $object )
 		                                              || ! function_exists( 'is_admin_bar_showing' )
 		                                              || ! is_admin_bar_showing() ) ) {
