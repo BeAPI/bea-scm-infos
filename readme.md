@@ -53,7 +53,7 @@ composer require bea/bea-scm-infos dev-master
 
 * BEA/SCM/git_folder_path
 * BEA/SCM/items_args
-* BEA/SCM/show_admin_bar
+* BEA/SCM/hide_admin_bar
 
 ## Screenshots
 
@@ -70,6 +70,10 @@ error case :
 ![set options](/assets/img/screen-the-error.png?raw=true)
 
 ## Changelog ##
+
+### 2.2
+* 09 November 2017
+* change filter name admin bar that can be confusing
 
 ### 2.1
 * 03 November 2017
