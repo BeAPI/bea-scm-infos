@@ -15,6 +15,21 @@ class Main {
 	protected function init() {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
+	}
+
+	/**
+	 * @param $text
+	 * @author Julien Maury
+	 * @return string
+	 */
+	public function admin_footer_text( $text ) {
+
+		if ( ! $this->current_user_can_footer_message() ) {
+			return $text;
+		}
+
+		return $text . ' | ' . self::get_basic_data();
 	}
 
 	public static function get_tool_page_url() {
@@ -28,11 +43,11 @@ class Main {
 	 */
 	public function current_user_can_footer_message() {
 
-		if ( apply_filters( 'BEA/SCM/show_admin_footer_text', ! is_super_admin() ) ) {
-			return false;
+		if ( apply_filters( 'BEA/SCM/hide_admin_footer_text', is_super_admin() ) ) {
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	/**

@@ -55,15 +55,15 @@ class Admin_Bar {
 	/**
 	 * Check who has access to admin bar data
 	 *
-	 * @param $object
+	 * @param $wp_admin_bar
 	 *
 	 * @author Julien Maury
 	 * @return bool
 	 */
-	public function current_user_can_see_admin_bar( $object ) {
+	public function current_user_can_see_admin_bar( $wp_admin_bar ) {
 
 		if ( apply_filters( 'BEA/SCM/hide_admin_bar', ! is_super_admin()
-		                                              || ! is_object( $object )
+		                                              || ! is_object( $wp_admin_bar )
 		                                              || ! function_exists( 'is_admin_bar_showing' )
 		                                              || ! is_admin_bar_showing() ) ) {
 			return false;

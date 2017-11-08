@@ -74,6 +74,8 @@ error case :
 ### 2.2
 * 09 November 2017
 * change filter name admin bar that can be confusing
+* add info as admin footer text too
+* new filter
 
 ### 2.1
 * 03 November 2017
