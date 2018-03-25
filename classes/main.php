@@ -58,7 +58,7 @@ class Main {
 	 * @return string| \WP_Error
 	 */
 	public static function get_basic_data() {
-		$git = Git::get_instance();
+		$git = Gitter::get_instance();
 
 		$branch = $git->run_command( 'rev-parse --abbrev-ref HEAD' );
 		$tag    = $git->run_command( 'describe --tags' );
@@ -85,7 +85,7 @@ class Main {
 
 			Helpers::render( 'scm-infos', array(
 				'title'    => __( 'GIT', 'bea-scm' ),
-				'instance' => Git::get_instance()
+				'instance' => Gitter::get_instance()
 			) );
 	}
 
