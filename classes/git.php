@@ -1,10 +1,9 @@
 <?php
 
 namespace BEA\SCM;
+use Git;
 
-use Gitter;
-
-class Git implements Format {
+class Gitter implements Format {
 
 	use Singleton;
 
@@ -18,15 +17,18 @@ class Git implements Format {
 	 */
 	public function run_command( $command ) {
 
-		$client = new Gitter\Client;
+
+		$repo = Git::open(apply_filters( 'BEA/SCM/git_folder_path', ABSPATH ) );
+
 		try {
-			$message = $client->run( $client->getRepository( apply_filters( 'BEA/SCM/git_folder_path', ABSPATH ) ), $command );
+			$message = $repo->run( $command );
 		} catch ( \Exception $e ) {
 			return new \WP_Error( 'error_command', $e->getMessage() );
 		}
 
 		return $message;
 	}
+
 
 
 	/**
@@ -89,7 +91,7 @@ class Git implements Format {
 				$output[ $name ] = $run_command;
 			}
 
-			set_transient( 'bea_scm_' . $this->set_cache(), $output, (int) apply_filters( 'BEA/SCM/transient_expiration', MINUTE_IN_SECONDS ) );
+			set_site_transient( 'bea_scm_' . $this->set_cache(), $output, (int) apply_filters( 'BEA/SCM/transient_expiration', MINUTE_IN_SECONDS ) );
 		}
 
 		return $output;

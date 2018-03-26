@@ -72,6 +72,11 @@ error case :
 
 ## Changelog ##
 
+### 3.0
+* March 2018
+* Change lib to provide compat for PHP 7.0
+
+
 ### 2.2
 * 09 November 2017
 * change filter name admin bar that can be confusing
